@@ -1,0 +1,24 @@
+pkgbase = hyd-git
+	pkgdesc = Read-only C++ mirror of the Hydrus Public Tag Repository with a Client API subset
+	pkgver = 0.2.0.r0.g0000000
+	pkgrel = 1
+	url = https://github.com/lusoterra/hyd
+	install = hydd.install
+	arch = x86_64
+	arch = aarch64
+	license = AGPL-3.0-or-later
+	makedepends = git
+	makedepends = cmake
+	makedepends = ninja
+	makedepends = python
+	depends = curl
+	depends = openssl
+	depends = zlib
+	depends = sqlite
+	depends = nlohmann-json
+	depends = simdjson
+	backup = etc/hydd.conf
+	source = hyd-git::git+https://github.com/lusoterra/hyd.git
+	sha256sums = SKIP
+
+pkgname = hyd-git

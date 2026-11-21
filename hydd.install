@@ -1,0 +1,16 @@
+post_install() {
+    systemd-sysusers /usr/lib/sysusers.d/hyd.conf >/dev/null 2>&1 || true
+    if ! getent passwd hyd >/dev/null; then
+        useradd --system --user-group --home-dir /var/lib/hyd \
+            --shell /usr/bin/nologin hyd >/dev/null 2>&1 || true
+    fi
+    systemd-tmpfiles --create /usr/lib/tmpfiles.d/hyd.conf >/dev/null 2>&1 || true
+    install -d -o hyd -g hyd -m 0750 /var/lib/hyd /var/log/hyd 2>/dev/null || true
+    chown root:hyd /etc/hydd.conf 2>/dev/null || true
+    chmod 640 /etc/hydd.conf
+    systemctl daemon-reload >/dev/null 2>&1 || true
+}
+
+post_upgrade() {
+    post_install
+}
