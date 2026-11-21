@@ -1,0 +1,2 @@
+d /var/lib/hyd 0755 hyd hyd -
+d /var/log/hyd 0755 hyd hyd -

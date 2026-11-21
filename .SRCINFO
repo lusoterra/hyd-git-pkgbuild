@@ -19,6 +19,10 @@ pkgbase = hyd-git
 	depends = simdjson
 	backup = etc/hydd.conf
 	source = hyd-git::git+https://github.com/lusoterra/hyd.git
+	source = hyd.tmpfiles
+	source = hydd-perms.conf
 	sha256sums = SKIP
+	sha256sums = 4be8c96584f6d662d4109e56079a5f688844faf8909f2dfb76c98fd01eb52786
+	sha256sums = 0a6978b457b14a104981634b421d718d1e2e23d464303ea63cc696014124ff56
 
 pkgname = hyd-git

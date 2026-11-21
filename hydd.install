@@ -5,7 +5,15 @@ post_install() {
             --shell /usr/bin/nologin hyd >/dev/null 2>&1 || true
     fi
     systemd-tmpfiles --create /usr/lib/tmpfiles.d/hyd.conf >/dev/null 2>&1 || true
-    install -d -o hyd -g hyd -m 0750 /var/lib/hyd /var/log/hyd 2>/dev/null || true
+
+    # Directories 0755, regular files 0644 (also fixes pre-existing trees).
+    install -d -o hyd -g hyd -m 0755 /var/lib/hyd /var/log/hyd 2>/dev/null || true
+    find /var/lib/hyd /var/log/hyd -type d -exec chmod 0755 {} + 2>/dev/null || true
+    find /var/lib/hyd /var/log/hyd -type f -exec chmod 0644 {} + 2>/dev/null || true
+
+    # Credentials live in the data dir; never make them world-readable.
+    chmod 0600 /var/lib/hyd/api_access_key /var/lib/hyd/service_key 2>/dev/null || true
+
     chown root:hyd /etc/hydd.conf 2>/dev/null || true
     chmod 640 /etc/hydd.conf
     systemctl daemon-reload >/dev/null 2>&1 || true
