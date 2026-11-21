@@ -1,6 +1,6 @@
 # Maintainer: Lev <lev@lusosterone.net>
 pkgname=hyd-git
-pkgver=0.2.0.r0.g0000000
+pkgver=0.2.0.r13.ecc2907
 pkgrel=1
 pkgdesc="Read-only C++ mirror of the Hydrus Public Tag Repository with a Client API subset"
 arch=('x86_64' 'aarch64')
@@ -35,7 +35,6 @@ package() {
     DESTDIR="$pkgdir" cmake --install build --prefix /usr
     install -Dm644 "$pkgname/LICENSE" "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 
-    # Source files use .sysusers/.tmpfiles, but systemd only reads *.conf.
-    install -Dm644 hyd.sysusers "$pkgdir/usr/lib/sysusers.d/hyd.conf"
-    install -Dm644 hyd.tmpfiles "$pkgdir/usr/lib/tmpfiles.d/hyd.conf"
+    # sysusers.d/hyd.conf and tmpfiles.d/hyd.conf are installed by upstream CMake
+    # (contrib/systemd/hyd.{sysusers,tmpfiles} renamed to *.conf).
 }
