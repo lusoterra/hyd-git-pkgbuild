@@ -1,6 +1,6 @@
 pkgbase = hyd-git
 	pkgdesc = Read-only C++ mirror of the Hydrus Public Tag Repository with a Client API subset
-	pkgver = 0.7.0.r38.d617df8
+	pkgver = 0.7.1.r39.987473e
 	pkgrel = 1
 	url = https://github.com/lusoterra/hyd
 	install = hydd.install
