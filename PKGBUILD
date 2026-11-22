@@ -1,6 +1,6 @@
 # Maintainer: Lev <lev@lusosterone.net>
 pkgname=hyd-git
-pkgver=0.2.0.r13.ecc2907
+pkgver=0.3.0.r21.f97d700
 pkgrel=1
 pkgdesc="Read-only C++ mirror of the Hydrus Public Tag Repository with a Client API subset"
 arch=('x86_64' 'aarch64')
