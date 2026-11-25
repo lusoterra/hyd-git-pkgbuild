@@ -1,12 +1,12 @@
 # Maintainer: Lev <lev@lusosterone.net>
 pkgname=hyd-git
-pkgver=0.7.1.r43.a6137b6
+pkgver=0.8.0.r65.8624108
 pkgrel=1
 pkgdesc="Read-only C++ mirror of the Hydrus Public Tag Repository with a Client API subset"
 arch=('x86_64' 'aarch64')
 url="https://github.com/lusoterra/hyd"
 license=('AGPL-3.0-or-later')
-depends=('curl' 'openssl' 'zlib' 'nlohmann-json' 'simdjson' 'bash')
+depends=('curl' 'openssl' 'zlib' 'nlohmann-json' 'simdjson')
 makedepends=('git' 'cmake' 'ninja' 'python')
 conflicts=("hyd" "hyd-git")
 backup=('etc/hydd.conf')
